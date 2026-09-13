@@ -74,8 +74,8 @@ function ServForm() {
         setTime('');
         setTech('');
         setReason('');
+        setSubmittedAuto(true);
       }
-      setSubmittedAuto(true);
     }
 
     useEffect(() => {
@@ -126,7 +126,7 @@ function ServForm() {
                 <button className="btn btn-primary">Create</button>
               </form>
               <div className={messageClasses} id="success-message">
-                        You have added an Automobile to the inventory!
+                        You have created a Service Appointment!
               </div>
             </div>
           </div>
