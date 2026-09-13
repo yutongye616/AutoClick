@@ -17,6 +17,7 @@ function TechForm() {
         const value = event.target.value;
         setId(value);
     }
+    const [submitted, setSubmitted] = useState(false);
 
     const fetchData = async () => {
         const response = await fetch(`${SERVICE_API}/api/technicians/`);
@@ -43,11 +44,15 @@ function TechForm() {
             setFirst('');
             setLast('');
             setId('');
+            setSubmitted(true);
         }
     }
     useEffect(() => {
         fetchData();
     }, []);
+
+    const formClasses = (!submitted) ? '' : 'd-none';
+    const messageClasses = (!submitted) ? 'alert alert-success d-none mb-0' : 'alert alert-success mb-0';
 
     return (
         <div className="hero">
@@ -55,7 +60,7 @@ function TechForm() {
             <div className="offset-3 col-6">
                 <div className="shadow p-4 rounded bg-white">
                     <h1>Add a Technician</h1>
-                    <form onSubmit={handleSubmit} id="create-tech-form">
+                    <form className={formClasses} onSubmit={handleSubmit} id="create-tech-form">
                         <div className="form-floating mb-3">
                             <input onChange={handleFirstChange} placeholder="first_name" required type="text" name="first_name" value={first_name} id="first_name" className="form-control"/>
                             <label htmlFor="first_name">First name...</label>
@@ -70,6 +75,9 @@ function TechForm() {
                         </div>
                         <button className="btn btn-primary">Create</button>
                     </form>
+                    <div className={messageClasses} id="success-message">
+                        You have added a Technician!
+                    </div>
                 </div>
             </div>
         </div>
