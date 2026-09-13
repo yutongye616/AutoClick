@@ -8,6 +8,7 @@ function CustomerForm() {
         address: '',
         phone_number: '',
     })
+    const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -31,6 +32,7 @@ function CustomerForm() {
                 address: '',
                 phone_number: ''
             })
+            setSubmitted(true);
         }
     }
 
@@ -43,13 +45,16 @@ function CustomerForm() {
         })
     }
 
+    const formClasses = (!submitted) ? '' : 'd-none';
+    const messageClasses = (!submitted) ? 'alert alert-success d-none mb-0' : 'alert alert-success mb-0';
+
     return (
         <div className="hero">
         <div className="row w-100">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 rounded bg-white">
                     <h1>New Customer</h1>
-                    <form onSubmit={handleSubmit} id="create-customer-form">
+                    <form className={formClasses} onSubmit={handleSubmit} id="create-customer-form">
                         <div className="form-floating mb-3">
                         <input onChange={handleFormChange} value={formData.first_name} placeholder="First Name" required type="text" name="first_name" id="first_name" className="form-control" />
                         <label htmlFor="name">First Name</label>
@@ -68,6 +73,9 @@ function CustomerForm() {
                         </div>
                         <button className="btn btn-primary">Create</button>
                     </form>
+                    <div className={messageClasses} id="success-message">
+                        You have added a Customer!
+                    </div>
                 </div>
             </div>
         </div>
