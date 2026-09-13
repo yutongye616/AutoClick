@@ -8,6 +8,7 @@ function VehicleModelForm() {
         manufacturer_id: '',
         picture_url: '',
     })
+    const [submitted, setSubmitted] = useState(false);
 
     const getData = async () => {
         const url = `${INVENTORY_API}/api/manufacturers/`
@@ -44,6 +45,7 @@ function VehicleModelForm() {
                 manufacturer_id: '',
                 picture_url: '',
             })
+            setSubmitted(true);
         }
     }
 
@@ -56,13 +58,16 @@ function VehicleModelForm() {
         })
     }
 
+    const formClasses = (!submitted) ? '' : 'd-none';
+    const messageClasses = (!submitted) ? 'alert alert-success d-none mb-0' : 'alert alert-success mb-0';
+
     return (
         <div className="hero">
         <div className="row w-100">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 rounded bg-white">
                     <h1>New Model</h1>
-                    <form onSubmit={handleSubmit} id="create-model-form">
+                    <form className={formClasses} onSubmit={handleSubmit} id="create-model-form">
                         <div className="form-floating mb-3">
                         <input onChange={handleFormChange} value={formData.name} placeholder="Model Name" required type="text" name="name" id="name" className="form-control" />
                         <label htmlFor="name">Name</label>
@@ -85,6 +90,9 @@ function VehicleModelForm() {
                         </div>
                         <button className="btn btn-primary">Create</button>
                     </form>
+                    <div className={messageClasses} id="success-message">
+                        You have added a Vehicle Model!
+                    </div>
                 </div>
             </div>
         </div>
