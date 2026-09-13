@@ -23,6 +23,7 @@ function AutosForm() {
         setModel(value);
     }
     const [models, setModels] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
     const fetchData = async () => {
         const response = await fetch(`${INVENTORY_API}/api/models/`);
 
@@ -54,6 +55,7 @@ function AutosForm() {
             setYear('');
             setVin('');
             setModel('');
+            setSubmitted(true);
         }
     }
 
@@ -61,13 +63,16 @@ function AutosForm() {
         fetchData();
     }, []);
 
+    const formClasses = (!submitted) ? '' : 'd-none';
+    const messageClasses = (!submitted) ? 'alert alert-success d-none mb-0' : 'alert alert-success mb-0';
+
     return (
         <div className="hero">
         <div className="row w-100">
           <div className="offset-3 col-6">
             <div className="shadow p-4 rounded bg-white">
               <h1>Add an automobile to inventory</h1>
-              <form onSubmit={handleSubmit} id="create-auto-form">
+              <form className={formClasses} onSubmit={handleSubmit} id="create-auto-form">
                 <div className="form-floating mb-3">
                   <input onChange={handleColorChange} placeholder="Color" required type="text" name="color" value={color} id="color" className="form-control"/>
                   <label htmlFor="color">Color...</label>
@@ -92,6 +97,9 @@ function AutosForm() {
                 </div>
                 <button className="btn btn-primary">Create</button>
               </form>
+              <div className={messageClasses} id="success-message">
+                        You have added an Automobile to the inventory!
+              </div>
             </div>
           </div>
         </div>
