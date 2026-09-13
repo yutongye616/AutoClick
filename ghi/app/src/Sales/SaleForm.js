@@ -11,6 +11,7 @@ function SaleForm() {
         salesperson: '',
         customer: ''
     })
+    const [submitted, setSubmitted] = useState(false);
 
     const getData = async () => {
         const autourl = `${INVENTORY_API}/api/automobiles/`;
@@ -86,6 +87,7 @@ function SaleForm() {
                     });
 
                     getData();
+                    setSubmitted(true);
                 }
             } else {
                 console.error('Error submitting sale:', response.statusText);
@@ -105,13 +107,16 @@ function SaleForm() {
             [inputName]: value
         })
     }
+    const formClasses = (!submitted) ? '' : 'd-none';
+    const messageClasses = (!submitted) ? 'alert alert-success d-none mb-0' : 'alert alert-success mb-0';
+
     return (
         <div className="hero">
         <div className="row w-100">
             <div className="offset-3 col-6">
                 <div className="shadow p-4 rounded bg-white">
                     <h1>Create a Sale</h1>
-                    <form onSubmit={handleSubmit} id="create-sale-form">
+                    <form className={formClasses} onSubmit={handleSubmit} id="create-sale-form">
                         <div className="form-floating mb-3">
                             <input onChange={handleFormChange} value={formData.price} placeholder="Price" required type="number" name="price" id="price" className="form-control" />
                             <label htmlFor="name">Price</label>
@@ -151,6 +156,9 @@ function SaleForm() {
                         </div>
                         <button className="btn btn-primary">Create</button>
                     </form>
+                    <div className={messageClasses} id="success-message">
+                        You have created a Sale!
+                    </div>
                 </div>
             </div>
         </div>
