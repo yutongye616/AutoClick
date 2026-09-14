@@ -22,7 +22,7 @@ function Nav() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <NavLink to="/" className="text-white text-decoration-none fs-5 fw-bold ms-3">
+        <NavLink to="/" className="brand-text text-decoration-none fs-5 ms-3">
           Auto Click
         </NavLink>
       </nav>
@@ -34,7 +34,7 @@ function Nav() {
         aria-labelledby="sidebarOffcanvasLabel"
       >
         <div className="offcanvas-header d-lg-none">
-          <h5 className="offcanvas-title text-white" id="sidebarOffcanvasLabel">Auto Click</h5>
+          <h5 className="offcanvas-title brand-text" id="sidebarOffcanvasLabel">Auto Click</h5>
           <button
             type="button"
             className="btn-close btn-close-white"
@@ -44,8 +44,8 @@ function Nav() {
           ></button>
         </div>
         <div className="offcanvas-body d-flex flex-column p-3">
-          <NavLink to="/" onClick={closeMobileSidebar} className="d-none d-lg-flex align-items-center mb-3 text-white text-decoration-none">
-            <span className="fs-4 fw-bold">Auto Click</span>
+          <NavLink to="/" onClick={closeMobileSidebar} className="d-none d-lg-flex align-items-center mb-3 text-decoration-none">
+            <span className="fs-4 brand-text">Auto Click</span>
           </NavLink>
           <hr className="d-none d-lg-block" />
           <ul className="nav nav-pills flex-column mb-auto">
