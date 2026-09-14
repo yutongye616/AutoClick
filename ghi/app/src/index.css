@@ -60,7 +60,8 @@ code {
 
 .hero {
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   min-height: 100%;
   padding-top: 3rem;
   padding-bottom: 3rem;
