@@ -87,9 +87,9 @@ function ServForm() {
     const messageClasses = (!submittedAuto) ? 'alert alert-success d-none mb-0' : 'alert alert-success mb-0';
 
     return (
-        <div className="hero">
+        <div className="hero px-3">
         <div className="row w-100">
-          <div className="offset-3 col-6">
+          <div className="col-12 col-lg-6 offset-lg-3">
             <div className="shadow p-4 rounded bg-white">
               <h1>Create A Service Appointment</h1>
               <form className={formClasses} onSubmit={handleSubmit} id="create-appointment-form">
