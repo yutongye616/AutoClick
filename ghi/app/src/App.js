@@ -80,7 +80,7 @@ function MainContent() {
 function App() {
   return (
     <BrowserRouter>
-      <div className="d-flex" style={{ minHeight: '100vh' }}>
+      <div className="d-flex flex-column flex-lg-row" style={{ minHeight: '100vh' }}>
         <Nav />
         <MainContent />
       </div>
