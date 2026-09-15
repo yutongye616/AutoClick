@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ]
 
 ALLOWED_HOSTS = os.environ.get(
-    'ALLOWED_HOSTS', 'localhost,project-beta-inventory-api-1'
+    'ALLOWED_HOSTS', 'localhost,inventory-api'
 ).split(',')
 
 CSRF_TRUSTED_ORIGINS = os.environ.get(

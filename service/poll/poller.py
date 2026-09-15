@@ -13,7 +13,7 @@ django.setup()
 from service_rest.models import AutomobileVO
 
 KAFKA_BOOTSTRAP_SERVERS = os.environ.get("KAFKA_BOOTSTRAP_SERVERS", "kafka:9092")
-INVENTORY_API_URL = "http://project-beta-inventory-api-1:8000/api/automobiles/"
+INVENTORY_API_URL = "http://inventory-api:8000/api/automobiles/"
 
 
 def upsert_automobile(vin, sold):
