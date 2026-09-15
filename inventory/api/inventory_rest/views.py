@@ -7,6 +7,7 @@ from .encoders import (
     ManufacturerEncoder,
     VehicleModelEncoder,
 )
+from .events import publish_automobile_event
 from .models import Automobile, Manufacturer, VehicleModel
 
 
@@ -25,6 +26,7 @@ def api_automobiles(request):
             model = VehicleModel.objects.get(pk=model_id)
             content["model"] = model
             auto = Automobile.objects.create(**content)
+            publish_automobile_event("created", auto.vin, auto.sold)
             return JsonResponse(
                 auto,
                 encoder=AutomobileEncoder,
@@ -73,6 +75,7 @@ def api_automobile(request, vin):
                 if prop in content:
                     setattr(auto, prop, content[prop])
             auto.save()
+            publish_automobile_event("updated", auto.vin, auto.sold)
             return JsonResponse(
                 auto,
                 encoder=AutomobileEncoder,
