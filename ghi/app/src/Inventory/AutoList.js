@@ -29,6 +29,23 @@ function AutomobileList() {
         }
     }
 
+    const handleToggleRecall = async (vin, hasOpenRecall) => {
+        const response = await fetch(`${INVENTORY_API}/api/automobiles/${vin}/`, {
+            method: 'PUT',
+            body: JSON.stringify({ has_open_recall: !hasOpenRecall }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            const updated = await response.json();
+            setAuto((prevAutos) =>
+                prevAutos.map((auto) => (auto.vin === vin ? updated : auto))
+            );
+        }
+    }
+
     return (
         <div className="hero px-4">
         <div className="row w-100 justify-content-center">
@@ -45,6 +62,7 @@ function AutomobileList() {
                     <th>Model</th>
                     <th>Manufacturer</th>
                     <th>Sold</th>
+                    <th>Safety</th>
                     <th></th>
                 </tr>
             </thead>
@@ -59,7 +77,20 @@ function AutomobileList() {
                             <td> { autos.model.name } </td>
                             <td> { autos.model.manufacturer.name } </td>
                             <td> { autos.sold ? 'Yes' : 'No' } </td>
+                            <td>
+                                {autos.has_open_recall ? (
+                                    <span className="badge bg-danger">Recall Open</span>
+                                ) : (
+                                    <span className="badge bg-success">Clear</span>
+                                )}
+                            </td>
                             <td className="text-nowrap">
+                                <button
+                                    className={`btn btn-sm me-1 ${autos.has_open_recall ? 'btn-outline-secondary' : 'btn-warning'}`}
+                                    onClick={() => handleToggleRecall(autos.vin, autos.has_open_recall)}
+                                >
+                                    {autos.has_open_recall ? 'Clear Recall' : 'Flag Recall'}
+                                </button>
                                 <button
                                     className="btn btn-danger btn-sm"
                                     onClick={() => handleDelete(autos.vin)}
