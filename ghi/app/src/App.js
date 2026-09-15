@@ -18,6 +18,7 @@ import AppointmentForm from './Service/AppointForm';
 import AppointmentList from './Service/AppointList';
 import AutomobileForm from './Inventory/AutoForm';
 import AutomobileList from './Inventory/AutoList';
+import SafetyOverview from './Service/SafetyOverview';
 
 
 const FULL_BLEED_PATHS = [
@@ -39,6 +40,7 @@ const FULL_BLEED_PATHS = [
   '/appointments',
   '/appointments/create',
   '/appointments/history',
+  '/safety',
 ];
 
 function MainContent() {
@@ -72,6 +74,7 @@ function MainContent() {
           <Route path="create" element={<AppointmentForm />} />
           <Route path="history" element={<AppointmentHistory />} />
         </Route>
+        <Route path="/safety" element={<SafetyOverview />} />
       </Routes>
     </div>
   );

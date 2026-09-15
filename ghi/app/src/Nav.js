@@ -89,6 +89,9 @@ function Nav() {
             <li className="nav-item">
               <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/appointments/history">Service History</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/safety">Vehicle Safety Overview</NavLink>
+            </li>
 
             <li className="mt-3 mb-1 px-3 text-white-50 text-uppercase small fw-bold">Sales</li>
             <li className="nav-item">
