@@ -70,7 +70,7 @@ def api_automobile(request, vin):
             content = json.loads(request.body)
             auto = Automobile.objects.get(vin=vin)
 
-            props = ["color", "year", "sold"]
+            props = ["color", "year", "sold", "has_open_recall"]
             for prop in props:
                 if prop in content:
                     setattr(auto, prop, content[prop])

@@ -33,6 +33,7 @@ class AutomobileEncoder(ModelEncoder):
         "vin",
         "model",
         "sold",
+        "has_open_recall",
     ]
     encoders = {
         "model": VehicleModelEncoder(),
