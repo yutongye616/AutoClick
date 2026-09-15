@@ -91,7 +91,7 @@ function ServForm() {
         <div className="row w-100">
           <div className="col-12 col-lg-6 offset-lg-3">
             <div className="shadow p-4 rounded bg-white">
-              <h1>Create A Service Appointment</h1>
+              <h1>Schedule a Vehicle Service</h1>
               <form className={formClasses} onSubmit={handleSubmit} id="create-appointment-form">
                 <div className="form-floating mb-3">
                   <input onChange={handleVinChange} placeholder="vin" required type="text" name="vin" value={vin} id="vin" className="form-control"/>

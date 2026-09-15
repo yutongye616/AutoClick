@@ -71,7 +71,7 @@ function AutosForm() {
         <div className="row w-100">
           <div className="col-12 col-lg-6 offset-lg-3">
             <div className="shadow p-4 rounded bg-white">
-              <h1>Add an automobile to inventory</h1>
+              <h1>Register a Vehicle</h1>
               <form className={formClasses} onSubmit={handleSubmit} id="create-auto-form">
                 <div className="form-floating mb-3">
                   <input onChange={handleColorChange} placeholder="Color" required type="text" name="color" value={color} id="color" className="form-control"/>

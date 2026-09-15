@@ -51,7 +51,7 @@ function AutomobileList() {
         <div className="row w-100 justify-content-center">
         <div className="col-11 col-lg-9">
         <div className="shadow p-4 rounded bg-white">
-            <h1>Automobile List</h1>
+            <h1>Vehicle Registry</h1>
         <div className="table-responsive">
         <table className="table table-striped">
             <thead>

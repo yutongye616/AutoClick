@@ -47,7 +47,7 @@ function ServHist() {
     <div className="row w-100 justify-content-center">
     <div className="col-11">
     <div className="shadow p-4 rounded bg-white">
-        <h1>Service History</h1>
+        <h1>Vehicle Service History</h1>
           <div className="mb-3">
             <label htmlFor="vinSearch" className="form-label">
               Search by VIN:

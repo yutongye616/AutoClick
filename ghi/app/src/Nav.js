@@ -55,10 +55,10 @@ function Nav() {
 
             <li className="mt-3 mb-1 px-3 text-white-50 text-uppercase small fw-bold">Inventory</li>
             <li className="nav-item">
-              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/automobiles">Automobiles</NavLink>
+              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/automobiles">Vehicle Registry</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/automobiles/create">Add an Automobile</NavLink>
+              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/automobiles/create">Register a Vehicle</NavLink>
             </li>
             <li className="nav-item">
               <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/api/manufacturers/">Manufacturers</NavLink>
@@ -84,10 +84,10 @@ function Nav() {
               <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/appointments">Service Appointments</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/appointments/create">Create a Service Appointment</NavLink>
+              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/appointments/create">Schedule a Vehicle Service</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/appointments/history">Service History</NavLink>
+              <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/appointments/history">Vehicle Service History</NavLink>
             </li>
             <li className="nav-item">
               <NavLink onClick={closeMobileSidebar} className="nav-link text-white" to="/safety">Vehicle Safety Overview</NavLink>
